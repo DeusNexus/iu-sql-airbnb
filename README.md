@@ -14,6 +14,7 @@ Diagram - Entity Relationship Model (ERM)
 
 ## Data Dictionary
 The following tables have been revised in the finalization phase to reflect the database current state.
+You can also find the Excel file in the documents folder. The script `sql/data_dictionary.sql` can be run in a query to output the table.
 ![Finalized Dictionary Diagram](/images/data_dictionary_p1.png)
 ![Finalized Dictionary Diagram](/images/data_dictionary_p2.png)
 
@@ -67,58 +68,65 @@ Here's a brief summary of all the tables in the database:
 -PostgreSQL
 -pgAdmin4
 
-## Installation instructions
-git clone ...
-cd ...
-pip3 install -r requirements.txt
-
-# Install Postgresql (Ubuntu 22.04 LTS)
+## Install Postgresql (Ubuntu 22.04 LTS)
 Linux Installation Script - PSQL Account creation, database deployment, table creations and data insertion.
 ![Linux Installation Script](/images/install_script.gif)
-
 According to the documentation on Ubuntu: https://ubuntu.com/server/docs/databases-postgresql
-**Install using package manager**
-`sudo apt install postgresql`
-**Create a Postgres database**
-`sudo -u postgres psql`
-`CREATE DATABASE airbnb;`
-**Connect to the database**
-`\c airbnb`
-**Create a new table**
-`CREATE TABLE [IF NOT EXISTS] customer (
-   customer_id SERIAL PRIMARY KEY,
-   user_name VARCHAR(50) UNIQUE NOT NULL,
-   email     VARCHAR(50) UNIQUE NOT NULL,
-   first_name VARCHAR(50) NOT NULL,
-   last_name VARCHAR(50) NOT NULL,
-   created_on TIMESTAMP NOT NULL,
-   last_login TIMESTAMP
-);`
 
-# Run the application
-python3 ...
+## Installation instructions for Linux
+1. `git clone https://github.com/DeusNexus/iu-sql-airbnb.git`
+2. `sudo chmod +x install.sh && ./install.sh` (Can take 3-10 minutes due to row-wise sql insertions)
+3. Open pgAdmin4 and fill out the following connection information: 
+    - Register Server, Name: Localhost
+    - Connection, Host name/address: localhost, Port: 5432, Username: postgres
+    - The databasese from your localhost should now show up including the `airbnb_test` database created by the `install.sh` script
+4. Expand views Localhost > Databases and right-click on airbnb_test, set owner to `postgres` if issues with ownership read permissions.
+5. Now you can interact with the `airbnb_test` and see the tables/views under airbnb_test > Schemas > Tables and/or Views.
+6. E.g. see the View of `property_view` by right-click > View/Edit Data > All Rows to see the view rows.
 
-# Query the database
-command
-command
+## Installation platform independent (fast)
+1. Make sure Postgres and pgAdmin4 are installed.
+2. Open pgAdmin4, Register new Localhost serverand fill out the following connection information: 
+    - Register Server, Name: Localhost
+    - Connection, Host name/address: localhost, Port: 5432, Username: postgres
+3. Create a new database, e.g. name it `airbnb_test` by right-click Databases > Create > Database ...:
+    - Database: `airbnb_test`
+    - Owner: `postgres`
+4. After the new database shows up right-click on it, Restore and select for Filename (database dump): ./sql/airbnb_pgadmin4.sql
+5. The complete database should now been initialized and you can interact with it similar to install steps 5 & 6 for Linux.
+
+# Metadata Overview
+To see the metadata of the database, first let pgAdmin4 analyze each table so the stats are up-to-date. The code below can be used by pasting it in a Query and is found in `./sql/analyze_metadata.sql`.
+
+# Table Creation and Data Insertions
+The linux installation script uses the individual SQL files to create the database (which takes longer) however this allows for viewing the SQL files in plain text (UTF-8). These can be found in the folder `./sql/create_table_scripts`. Once all tables are created, the table entries are inserted which can be found in the `./sql/insert_rows_scripts` folder.
 
 # Example Queries
-photo
-photo
+Under `./sql/views` several SQL scripts have been included that can create a view. Tables can be joined and using SELECT statement the desired columns can be displayed.
+
+View Chat Guest Host ID
+![View Chat Guest Host ID](/images/view_chat_guest_host_id.png)
+
+View Media Owner by Host
+![View Media Owner by Host](/images/view_media_owner_by_host.png)
+
+View Preferences Property Amenity Country
+![View Preferences Property Amenity Country](/images/view_preferences_pac.png)
+
+View Property
+![View Property](/images/view_property.png)
+
+View Review Booking
+![View Review Booking](/images/view_review_booking.png)
 
 # Database Views
-Get customer
-Get property_owner
-
-# Database Functions
-Sum profit?
-Sum reviews?
+In the database under Views `property_view` can be observed which shows several tables joined to get a rich description of each property.
 
 # Reflection
-Our work with interactive geo-spatial data compellingly underscores the potency of a single visualization. Traditional tabular formats and static charts often obfuscate the geographical context, depriving the viewer of crucial insights tied to geographic location. Interactive elements not only invite users to explore their questions but also unearth novel perspectives. Throughout this project, our design choices were meticulously considered to maintain clarity and conciseness. For instance, color was judiciously employed to enhance comprehension, with the gradient scale in the chloropleth map facilitating percentage visualization and catering to individuals with color vision impairments. The boxplot utilized color for differentiation, augmented by continent labels. Meanwhile, the bar chart accentuated individual countries upon hover, amplifying the distinct trends present.
+Throughout the process of creating the SQL Data Mart for Airbnb, I have gained invaluable insights into database design, implementation, and management. Working with PostgreSQL provided a deep understanding of its features, including Full ACID compliance, diverse data types, and the advantages of Multi-Version Concurrency Control (MVCC) for high transaction volumes. The development journey enhanced my skills in conceptualizing and modeling a datamart, incorporating UML schemas, and refining the data dictionary. Addressing challenges, such as table relationships, primary and foreign keys, and optimizing queries, strengthened my problem-solving abilities. The iterative process of revising the UML diagram and data dictionary underscored the importance of precision in database modeling. Hands-on experience in creating tables, populating data, and implementing complex queries deepened my comprehension of real-world database scenarios. Overall, this project has been a comprehensive exploration, expanding my knowledge of SQL databases and their practical applications.
 
 # Conclusion
-This project serves as a testament to the profound impact of design principles encompassing clarity, color utilization, interactivity, and the insights that emerge from geo-spatial data exploration. Through this undertaking, we have unraveled the nuanced complexities of geolocation and rural population percentages.
+The SQL Datamart AirBnB project has learned me a great deal. I know how to properly JOIN tables now using primary and foreign keys, design many-to-many tables for look ups, use SELECT, GROUPBY and other statements to build a real-world database using state-of-the-art database systems.
 
 # Disclaimer
 The developed application is licensed under the GNU General Public License.
