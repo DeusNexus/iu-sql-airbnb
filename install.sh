@@ -14,15 +14,15 @@ echo ""
 echo "Attempting to drop any previous old test database or user!"
 echo ""
 
-sudo -u postgres dropdb $dbname
-sudo -u postgres dropuser $user
+sudo -u postgres dropdb $dbname > /dev/null 2>&1
+sudo -u postgres dropuser $user > /dev/null 2>&1
 
 echo ""
 echo "Creating new user and database!"
 echo ""
 # Run createuser command with specified options
-sudo -u postgres psql -c "CREATE USER $user WITH PASSWORD '$password' CREATEDB;"
-sudo -u postgres psql -d postgres -c "CREATE DATABASE $dbname;"
+sudo -u postgres psql -c "CREATE USER $user WITH PASSWORD '$password' CREATEDB;" > /dev/null 2>&1
+sudo -u postgres psql -d postgres -c "CREATE DATABASE $dbname;" > /dev/null 2>&1
 
 echo ""
 echo "Please note that the following can take between 3-10 minutes depending on your PC's disk and cpu speed."
@@ -33,9 +33,9 @@ execute_scripts() {
     folder=$1
 
     # Get the number of scripts in the folder
-    script_count=$(ls -v "$folder"/*.sql | wc -l)
+    script_count=$(ls -v ./sql/"$folder"/*.sql | wc -l)
     counter=1
-    for script in $(ls -v $folder/*.sql); do
+    for script in $(ls -v ./sql/$folder/*.sql); do
         echo "Executing $script... $counter/$script_count"
 	counter=$((counter + 1))
         psql -h localhost -U $user -d $dbname -f $script > /dev/null 2>&1
