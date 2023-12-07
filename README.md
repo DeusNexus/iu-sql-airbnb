@@ -105,22 +105,27 @@ The linux installation script uses the individual SQL files to create the databa
 Under `./sql/views` several SQL scripts have been included that can create a view. Tables can be joined and using SELECT statement the desired columns can be displayed.
 
 **View Chat Guest Host ID**
+Shows how we can map the user id for both guest and host. This can be used to join different tables.
 
 ![View Chat Guest Host ID](/images/view_chat_guest_host_id.png)
 
 **View Media Owner by Host**
+Shows Media Files owner by different hosts.
 
 ![View Media Owner by Host](/images/view_media_owner_by_host.png)
 
 **View Preferences Property Amenity Country**
+Shows the preferences of a user by joining on the different foreign table keys for Property, Amenity and Country.
 
 ![View Preferences Property Amenity Country](/images/view_preferences_pac.png)
 
 **View Property**
+Shows details about a property after joining all the relevant foreign keys.
 
 ![View Property](/images/view_property.png)
 
 **View Review Booking**
+Shows reviews with detailed information after joining relevent booking tables.
 
 ![View Review Booking](/images/view_review_booking.png)
 
