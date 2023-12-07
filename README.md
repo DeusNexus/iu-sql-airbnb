@@ -14,7 +14,7 @@ Diagram - Entity Relationship Model (ERM)
 
 # Requirements Specification
 The revised data dictionary can be seen in the figure below.
-![Finalized Dictionary Diagram](/data_dictionary.pdf)
+![Finalized Dictionary Diagram](/data_dictionary_revised.pdf)
 
 # Database Tables Summary
 
