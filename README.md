@@ -8,8 +8,9 @@ PostgreSQL was chosen from numerous popular SQL Databases because it has Full AC
 The datamart project is meant to understand how a datamart is modelled, developed and used with examples.
 
 # Development Planning - UML Schemas
-## UML Diagram
-photo diagram
+## UML Diagram (Revised)
+Diagram - Entity Relationship Model (ERM)
+![Finalized ERM Diagram](/images/ERM_Finalization.png)
 
 # Requirements Specification
 User:
@@ -36,13 +37,18 @@ User:
 
 # How to get started
 ## Dependencies
-Python 3.7+
+-PostgreSQL
+-pgAdmin4
+
 ## Installation instructions
 git clone ...
 cd ...
 pip3 install -r requirements.txt
 
 # Install Postgresql (Ubuntu 22.04 LTS)
+Linux Installation Script - PSQL Account creation, database deployment, table creations and data insertion.
+![Linux Installation Script](/images/install_script.gif)
+
 According to the documentation on Ubuntu: https://ubuntu.com/server/docs/databases-postgresql
 **Install using package manager**
 `sudo apt install postgresql`
@@ -80,6 +86,12 @@ Get property_owner
 # Database Functions
 Sum profit?
 Sum reviews?
+
+# Reflection
+Our work with interactive geo-spatial data compellingly underscores the potency of a single visualization. Traditional tabular formats and static charts often obfuscate the geographical context, depriving the viewer of crucial insights tied to geographic location. Interactive elements not only invite users to explore their questions but also unearth novel perspectives. Throughout this project, our design choices were meticulously considered to maintain clarity and conciseness. For instance, color was judiciously employed to enhance comprehension, with the gradient scale in the chloropleth map facilitating percentage visualization and catering to individuals with color vision impairments. The boxplot utilized color for differentiation, augmented by continent labels. Meanwhile, the bar chart accentuated individual countries upon hover, amplifying the distinct trends present.
+
+# Conclusion
+This project serves as a testament to the profound impact of design principles encompassing clarity, color utilization, interactivity, and the insights that emerge from geo-spatial data exploration. Through this undertaking, we have unraveled the nuanced complexities of geolocation and rural population percentages.
 
 # Disclaimer
 The developed application is licensed under the GNU General Public License.
