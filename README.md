@@ -52,20 +52,10 @@ Here's a brief summary of all the tables in the database:
 30. **User:** Stores user information, including guests, hosts, and administrators.
 31. **User Type:** Defines different user types.
 
-# Grading
-*Capturing the problem
-*Clear problem definition/objective
-*Understandable concept
-*Appropriate transfer of theories/models
-*Clear information about the chosen Methodology/Idea/Procedure
-*Quality of implementation and documentation
-*Creativity of the solution approach
-*Solution implemented fulfils intended objective
-*Compliance with formal requirements
-
 # How to get started
 ## Dependencies
 -PostgreSQL
+
 -pgAdmin4
 
 ## Install Postgresql (Ubuntu 22.04 LTS)
