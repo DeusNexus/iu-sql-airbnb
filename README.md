@@ -14,102 +14,72 @@ Diagram - Entity Relationship Model (ERM)
 
 # Requirements Specification
 The revised data dictionary can be seen in the figure below.
-![Finalized Dictionary Diagram](/data_dictionary_revised.pdf)
+![Finalized Dictionary Diagram](/images/data_dictionary_p1.png)
+![Finalized Dictionary Diagram](/images/data_dictionary_p2.png)
 
 # Database Tables Summary
 
 Here's a brief summary of all the tables in the database:
-
 1. **Access Level:**
    - Defines different access levels and roles within the system.
-
 2. **AccessLevelAllowedOperations:**
    - Represents allowed operations for each access level.
-
 3. **Activity Log:**
    - Logs user activities, queries, and execution timestamps.
-
 4. **Admin:**
    - Contains information about administrators.
-
 5. **Allowed Operations:**
    - Describes permitted database operations.
-
 6. **Amenity:**
    - Represents different amenities with categories.
-
 7. **Amenity Categories:**
    - Contains categories of amenities.
-
 8. **Booking:**
    - Stores details about property bookings, including guests, hosts, and payments.
-
 9. **Chat:**
    - Manages chat sessions between hosts and guests.
-
 10. **Country:**
     - Provides information about different countries.
-
 11. **Guest:**
     - Represents information about guests.
-
 12. **Host:**
     - Contains information about hosts.
-
 13. **Language:**
     - Lists various languages.
-
 14. **Media:**
     - Stores information about media files, including owner and file details.
-
 15. **Message:**
     - Manages messages exchanged between users.
-
 16. **Payment:**
     - Contains payment details for property bookings.
-
 17. **Payment Method:**
     - Describes different payment methods.
-
 18. **Payment Method Name:**
     - Contains names of payment methods.
-
 19. **Payment Status:**
     - Represents payment statuses.
-
 20. **Preferences:**
     - Stores user preferences, including language and contact settings.
-
 21. **Preferences Amenity, Country, Property Type:**
     - Link preferences with amenities, countries, and property types.
-
 22. **Promo:**
     - Manages promotional codes and their details.
-
 23. **Property:**
     - Represents properties with location, capacity, and amenities.
-
 24. **Property Amenity:**
     - Links properties with amenities.
-
 25. **Property Images:**
     - Links properties with images.
-
 26. **Property Review:**
     - Links properties with reviews.
-
 27. **Property Type:**
     - Describes different property types.
-
 28. **Review:**
     - Contains user reviews, ratings, and comments.
-
 29. **Review Type:**
     - Describes the entity being reviewed.
-
 30. **User:**
     - Stores user information, including guests, hosts, and administrators.
-
 31. **User Type:**
     - Defines different user types.
 
