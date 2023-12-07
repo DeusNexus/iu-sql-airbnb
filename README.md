@@ -104,19 +104,24 @@ The linux installation script uses the individual SQL files to create the databa
 # Example Queries
 Under `./sql/views` several SQL scripts have been included that can create a view. Tables can be joined and using SELECT statement the desired columns can be displayed.
 
-View Chat Guest Host ID
+**View Chat Guest Host ID**
+
 ![View Chat Guest Host ID](/images/view_chat_guest_host_id.png)
 
-View Media Owner by Host
+**View Media Owner by Host**
+
 ![View Media Owner by Host](/images/view_media_owner_by_host.png)
 
-View Preferences Property Amenity Country
+**View Preferences Property Amenity Country**
+
 ![View Preferences Property Amenity Country](/images/view_preferences_pac.png)
 
-View Property
+**View Property**
+
 ![View Property](/images/view_property.png)
 
-View Review Booking
+**View Review Booking**
+
 ![View Review Booking](/images/view_review_booking.png)
 
 # Database Views
